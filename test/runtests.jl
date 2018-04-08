@@ -7,7 +7,7 @@ using POMDPModels
 
 m = BabyPOMDP()
 
-ps = POMCPOWSolver(tree_queries=10_000, max_depth=10)
+ps = POMCPOWSolver(tree_queries=100_000, max_depth=10, enable_action_pw=false)
 solver = ParallelPOMCPOWSolver(ps, 50)
 
 planner = solve(solver, m)
