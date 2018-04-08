@@ -14,8 +14,10 @@ planner = solve(solver, m)
 
 action(planner, initial_state_distribution(m))
 action(planner, initial_state_distribution(m))
-@time action(planner, initial_state_distribution(m))
+@time a, info = action_info(planner, initial_state_distribution(m))
+@show info[:search_time_us]/1e6
 
 splanner = solve(ps, m)
 action(splanner, initial_state_distribution(m))
-@time action(splanner, initial_state_distribution(m))
+@time a, info = action_info(splanner, initial_state_distribution(m))
+@show info[:search_time_us]/1e6

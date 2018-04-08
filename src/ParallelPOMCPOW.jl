@@ -31,7 +31,7 @@ include("worker.jl")
 
 action(p::ParallelPOMCPOWPlanner, b) = first(action_info(p, b))
 
-function action_info(p::ParallelPOMCPOWPlanner, b)
+function POMDPToolbox.action_info(p::ParallelPOMCPOWPlanner, b)
     pp = p.powplanner
     ps = pp.solver
     @assert ps.eps == 0.01 # not supported; should be default
